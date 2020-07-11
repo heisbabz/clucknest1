@@ -1,0 +1,105 @@
+<template>
+    <div>
+        <Navbar />
+        <div class="register container shadow mt-5 p-4">
+            <form class="mt-2 " @submit.prevent="regSubmit">
+                <h3 class="a">REGISTER</h3>
+                <div class="form-row pt-3">
+                    <div class="col">
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="form-control" placeholder="First name" v-model="firstname">
+                    </div>
+                    <div class="col">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Last name" v-model="lastname">
+                    </div>
+                </div>
+                <div class="form-row pt-3">
+                    <div class="col-md-8">
+                        <label for="email">Email Address</label>
+                        <input type="email" class="form-control" placeholder="Email" v-model="email">
+                    </div>
+                    <div class="col-md-4">
+                    <label for="gender">Gender</label>
+                    <select class="custom-select mr-sm-2" v-model="gender">
+                        <option selected>Select Gender</option>
+                        <option value="1">Female</option>
+                        <option value="2">Male</option>
+                    </select>
+                    </div>
+                </div>
+                <hr class="my-3">
+                <div class="form-row pt-3">
+                    <div class="col-md-8">
+                        <label for="farmName">Farm Name</label>
+                        <input type="text" class="form-control" placeholder="Farm name" v-model="farmname">
+                    </div>
+                    <div class="col-md-4">
+                    <label for="dateOfEstablishment">Date of Establishment</label>
+                    <input type="date" class="form-control" v-model="doe">
+                    </div>
+                </div>
+                <div class="form-group pt-3">
+                    <label for="farmAddress">Farm Address</label>
+                    <input type="text" class="form-control" placeholder="Enter your farm address" v-model="farmaddress">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" v-model="city">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="state">State</label>
+                        <select class="form-control" v-model="state">
+                            <option selected>Choose...</option>
+                            <option>Ekiti</option>
+                            <option>Kwara</option>
+                            <option>Lagos</option>
+                            <option>Ogun</option>
+                            <option>Ondo</option>
+                            <option>Osun</option>
+                            <option>Oyo</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary mt-4 rb shadow">Submit</button>
+            </form>
+        </div>
+    </div>
+</template>
+
+<script>
+import Navbar from '@/components/Navbar.vue'
+
+export default {
+    name: 'Register',
+    components: {
+        Navbar
+    },
+    data(){
+        return{
+            
+        }
+    }
+}
+</script>>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.register {
+    color: #CD853F;
+    max-width: 700px;
+    background-color: #FFF;
+    border-radius: 10px;
+}
+.rb {
+    background-color: #FFF;
+    border: 1px solid #CD853F;
+    color: #CD853F;
+}
+.rb:hover {
+    background-color: #CD853F;
+    color: #FFF;
+}
+</style>
