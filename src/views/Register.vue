@@ -61,6 +61,13 @@
                             <option>Oyo</option>
                         </select>
                     </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-7">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" placeholder="Enter your preferred password" v-model="password">
+                        <password-meter :password="password" />
+                    </div>
                 </div>                
                 <button type="submit" class="btn btn-primary mt-4 rb shadow">Submit</button>
             </form>
@@ -71,12 +78,14 @@
 <script>
 import Navbar from '@/components/Navbar.vue'
 import Datepicker from 'vuejs-datepicker'
+import passwordMeter from "vue-simple-password-meter";
 
 export default {
     name: 'Register',
     components: {
         Navbar,
-        Datepicker
+        Datepicker,
+        passwordMeter
     },
     data(){
         return{
@@ -91,7 +100,8 @@ export default {
             state: null,
             disabledDates: {
                 from: new Date(Date.now())
-            }
+            },
+            password: null
         }
     },
     methods: {
