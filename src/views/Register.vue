@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-md-4">
                     <label for="dateOfEstablishment">Date of Establishment</label>
-                    <input type="date" class="form-control" v-model="doe">
+                    <datepicker input-class="form-control" v-model="doe" :disabledDates="disabledDates" format="dd-MM-yyyy"></datepicker>
                     </div>
                 </div>
                 <div class="form-group pt-3">
@@ -70,11 +70,13 @@
 
 <script>
 import Navbar from '@/components/Navbar.vue'
+import Datepicker from 'vuejs-datepicker'
 
 export default {
     name: 'Register',
     components: {
-        Navbar
+        Navbar,
+        Datepicker
     },
     data(){
         return{
@@ -86,7 +88,10 @@ export default {
             doe: null,
             farmaddress: null,
             city: null,
-            state: null
+            state: null,
+            disabledDates: {
+                from: new Date(Date.now())
+            }
         }
     },
     methods: {
