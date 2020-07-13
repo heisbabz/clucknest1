@@ -21,15 +21,15 @@
                     </div>
                     <div class="col-md-4">
                     <label for="gender">Gender</label>
-                    <select class="custom-select mr-sm-2" v-model="gender">
-                        <option selected>Select Gender</option>
-                        <option value="1">Female</option>
-                        <option value="2">Male</option>
+                    <select class="custom-select mr-sm-2" v-model="gender" placeholder="Email">
+                        <option selected>Choose...</option>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
                     </select>
                     </div>
                 </div>
                 <hr class="my-3">
-                <div class="form-row pt-3">
+                <div class="form-row">
                     <div class="col-md-8">
                         <label for="farmName">Farm Name</label>
                         <input type="text" class="form-control" placeholder="Farm name" v-model="farmname">
@@ -61,8 +61,7 @@
                             <option>Oyo</option>
                         </select>
                     </div>
-                </div>
-                
+                </div>                
                 <button type="submit" class="btn btn-primary mt-4 rb shadow">Submit</button>
             </form>
         </div>
@@ -79,7 +78,22 @@ export default {
     },
     data(){
         return{
-            
+            firstname: null,
+            lastname: null,
+            email: null,
+            gender: null,
+            farmname: null,
+            doe: null,
+            farmaddress: null,
+            city: null,
+            state: null
+        }
+    },
+    methods: {
+        regSubmit() {
+            if(this.firstname, this.lastname, this.email, this.gender, this.farmname, this.doe, this.farmaddress, this.city, this. state){
+                console.log(this.firstname, this.lastname, this.email, this.gender, this.farmname, this.doe, this.farmaddress, this.city, this. state)
+            }
         }
     }
 }
