@@ -24,6 +24,8 @@
 
 <script scoped>
 import Navbar from '@/components/Navbar.vue'
+import firebase from 'firebase'
+
 export default {
   name: 'Login',
   components: {
@@ -33,6 +35,20 @@ export default {
     return{
       email: null,
       password: null
+    }
+  },
+  methods: {
+    loginSubmit(){
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+      .then(
+          function(){
+              alert('Login Successful')
+              //this.$router.push({name: 'Register'})
+          },
+          function(err){
+              alert('Oops ' + err.message)
+          }
+      )
     }
   }
 }
