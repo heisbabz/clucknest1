@@ -12,5 +12,6 @@ var firebaseConfig = {
   };
   // Initialize Firebase
   const firebaseClucknest = firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
 
   export default firebaseClucknest.firestore()

@@ -66,8 +66,7 @@
                             <option>Osun</option>
                             <option>Oyo</option>
                         </select>
-                    </div>
-                 <p v-if="feedback">{{feedback}}</p>   
+                    </div>  
                 </div>
                 <div class="form-row">
                     <div class="col-sm-7">
@@ -76,7 +75,7 @@
                         <password-meter :password="users.password" />
                     </div>
                 </div>
-                           
+                  <vue-toastr ref="toastr"></vue-toastr>          
                 <button type="submit" class="btn btn-primary mt-4 rb shadow">Submit</button>
             </form>
         </div>
@@ -90,6 +89,7 @@ import passwordMeter from "vue-simple-password-meter"
 import slugify from 'slugify'
 import db from '@/firebase/init'
 import firebase from 'firebase'
+import VueToastr from "vue-toastr"
 
 export default {
     name: 'Register',
@@ -97,6 +97,7 @@ export default {
         Navbar,
         Datepicker,
         passwordMeter,
+        VueToastr
     },
     data(){
         return{
@@ -130,7 +131,7 @@ export default {
               let ref = db.collection('users').doc(this.slug)
               ref.get().then(doc => {
                   if(doc.exists){
-                      this.feedback = 'This input already exists'
+                      this.$toastr.e("Email already exist");
                   }else {
                       firebase.auth().createUserWithEmailAndPassword(this.users.email, this.users.password)
                       .then(() => {
@@ -148,14 +149,15 @@ export default {
                                 password: this.users.password
                           })
                       }).then(() => {
-                          this.$router.push({name: 'Login'})
+                          this.$router.push({name: 'Main'})
                       })
                       }
               }) 
             }else{
-                this.feedback = 'You must enter all fields'
+                this.$toastr.e("Please fill in empty fields");
             }
-        }
+        },
+
     }
 }
 </script>>

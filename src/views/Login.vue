@@ -6,17 +6,19 @@
       <h3 class="a">LOGIN</h3>
       <div class="form-group pt-3">
         <label for="loginEmail">Email address</label>
-        <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" v-model="email">
+        <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" v-model="users.email">
       </div>
       <div class="form-group">
         <label for="loginPassword">Password</label>
-        <input type="password" class="form-control" placeholder="Password" v-model="password">
+        <input type="password" class="form-control" placeholder="Password" v-model="users.password">
       </div>
       <div class="form-check">
         <input type="checkbox" class="form-check-input" id="loginCheck">
         <label class="form-check-label" for="loginCheck">Keep me signed in</label>
       </div>
+      <vue-toastr ref="toastr"></vue-toastr>
       <button type="submit" class="btn btn-primary mt-4 lb shadow">Submit</button>
+      <div class="mt-1"><span>Not yet registered? <router-link to="/register">Register</router-link> now</span></div>
     </form>
   </div>
   </div>
@@ -25,30 +27,35 @@
 <script scoped>
 import Navbar from '@/components/Navbar.vue'
 import firebase from 'firebase'
+import VueToastr from "vue-toastr"
+
 
 export default {
   name: 'Login',
   components: {
-    Navbar
+    Navbar,
+    VueToastr
   },
   data(){
     return{
-      email: null,
-      password: null
+      users: {
+        email: null,
+        password: null
+      },
+      feedback: null
     }
   },
   methods: {
     loginSubmit(){
-      firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-      .then(
-          function(){
-              alert('Login Successful')
-              //this.$router.push({name: 'Register'})
-          },
-          function(err){
-              alert('Oops ' + err.message)
-          }
-      )
+      if(this.users.email && this.users.password){
+        firebase.auth().signInWithEmailAndPassword(this.users.email, this.users.password)
+        .then((user) => {
+          console.log(user)
+        }).catch(err => {
+          this.$toastr.e(err.message);
+        })
+        this.feedback = null
+      }
     }
   }
 }
