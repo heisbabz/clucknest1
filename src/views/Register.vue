@@ -149,7 +149,8 @@ export default {
                                 password: this.users.password
                           })
                       }).then(() => {
-                          this.$router.push({name: 'Main'})
+                          this.$toastr.s("Registration Successful!");
+                          this.$router.push({name: 'RegistrationSuccess'})
                       })
                       }
               }) 

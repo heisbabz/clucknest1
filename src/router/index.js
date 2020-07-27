@@ -27,6 +27,11 @@ Vue.use(VueRouter)
     path: '/main',
     name: 'Main',
     component: () => import(/* webpackChunkName: "about" */ '../views/Main.vue')
+  },
+  {
+    path: '/registration-success',
+    name: 'RegistrationSuccess',
+    component: () => import(/* webpackChunkName: "about" */ '../views/RegistrationSuccess.vue')
   }
 ]
 
