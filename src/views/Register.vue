@@ -131,7 +131,7 @@ export default {
               let ref = db.collection('users').doc(this.slug)
               ref.get().then(doc => {
                   if(doc.exists){
-                      this.$toastr.e("Email already exist");
+                      this.$toastr.e("Profile already exist");
                   }else {
                       firebase.auth().createUserWithEmailAndPassword(this.users.email, this.users.password)
                       .then(() => {
@@ -149,13 +149,13 @@ export default {
                                 password: this.users.password
                           })
                       }).then(() => {
-                          this.$toastr.s("Registration Successful!");
-                          this.$router.push({name: 'RegistrationSuccess'})
+                          this.$toastr.s("Registration Successful!")
+                          this.$router.push({name: 'RegistrationSuccess', params: {name: this.name}})
                       })
                       }
               }) 
             }else{
-                this.$toastr.e("Please fill in empty fields");
+                this.$toastr.e("Please fill in the empty fields");
             }
         },
 

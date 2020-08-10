@@ -11,7 +11,7 @@ var firebaseConfig = {
     measurementId: "G-XE4S14204T"
   };
   // Initialize Firebase
-  const firebaseClucknest = firebase.initializeApp(firebaseConfig);
+  var firebaseClucknest = firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 
   export default firebaseClucknest.firestore()

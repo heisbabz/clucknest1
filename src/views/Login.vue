@@ -27,6 +27,7 @@
 <script scoped>
 import Navbar from '@/components/Navbar.vue'
 import firebase from 'firebase'
+import 'firebase/firestore'
 import VueToastr from "vue-toastr"
 
 
@@ -49,12 +50,14 @@ export default {
     loginSubmit(){
       if(this.users.email && this.users.password){
         firebase.auth().signInWithEmailAndPassword(this.users.email, this.users.password)
-        .then((user) => {
-          console.log(user)
+        .then(() => {
+          this.$router.push({name: 'Main', params: {name: this.name}})
         }).catch(err => {
           this.$toastr.e(err.message);
         })
         this.feedback = null
+      }else {
+        this.$toastr.e("Please fill in the empty fields")
       }
     }
   }

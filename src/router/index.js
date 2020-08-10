@@ -26,13 +26,33 @@ Vue.use(VueRouter)
   {
     path: '/main',
     name: 'Main',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Main.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Main.vue'),
+    // props: true,
+    // beforeEnter: (to, from, next) => {
+    //   if(to.params.name){
+    //     next()
+    //   }else {
+    //     next({name: 'Login'})
+    //   }
+    // }
   },
   {
-    path: '/registration-success',
+    path: '/register-success',
     name: 'RegistrationSuccess',
-    component: () => import(/* webpackChunkName: "about" */ '../views/RegistrationSuccess.vue')
-  }
+    component: () => import(/* webpackChunkName: "about" */ '../views/RegistrationSuccess.vue'),
+    beforeEnter: (to, from, next) => {
+      if(to.params.name){
+        next()
+      }else {
+        next({name: 'Register'})
+      }
+    }
+  },
+  {
+    path: '/main/flock',
+    name: 'Flock',
+    component: () => import(/* webpackChunkName: "about" */ '../views/main/Flock.vue')
+  },
 ]
 
 const router = new VueRouter({
