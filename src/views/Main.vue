@@ -3,91 +3,51 @@
     <v-navigation-drawer v-model="drawer" app class="shadow">
         <SidebarNav />
     </v-navigation-drawer>
-
-    <v-app-bar app color="#CD853F" dark class="ma-2">
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>CLUCKNEST</v-toolbar-title>
+      
+       <v-app-bar app color="#CD853F" dark class="ma-2">
+    <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+    <v-toolbar-title>CLUCKNEST</v-toolbar-title>
       <v-spacer></v-spacer>
+      <v-text-field flat solo-inverted hide-details prepend-inner-icon="mdi-magnify" abel="Search" class="hidden-sm-and-down" ></v-text-field>
       <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
+        <v-icon>mdi-email</v-icon>
+      </v-btn>
+      <v-btn icon>
+        <v-icon>mdi-bell</v-icon>
       </v-btn>
 
       <v-spacer></v-spacer>
-
-      <v-menu offset-y>
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn icon dark v-bind="attrs" v-on="on"> <v-icon>mdi-account-circle</v-icon> </v-btn>
-      </template>
-      <v-list>
-        <v-list-item v-for="(item, index) in items" :key="index" @click="btn">
-              <v-icon>{{ item.icon }}</v-icon>
-          <v-list-item-title><router-link :to="item.link">{{ item.title }}</router-link></v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu>
+    <AppBar />
 
     </v-app-bar>
-
+    
     <v-main>
-      <v-container class="fill-height" fluid >
-        <v-row align="center" justify="center" >
-          <v-col class="text-center">
-            <v-tooltip left>
-              <template v-slot:activator="{ on }">
-                <v-btn :href="source" icon large target="_blank" v-on="on" >
-                  <v-icon large>mdi-code-tags</v-icon>
-                </v-btn>
-                <!-- <Flock v-on="on"/> -->
-              </template>
-              <span>Source</span>
-            </v-tooltip>
-          </v-col>
-        </v-row>
-      </v-container>
+      <Dashboard />
     </v-main>
-    <v-footer color="#CD853F" app >
-      <span class="white--text">&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+    
+    <Footer />
   </v-app>
-</template>>
+</template>
 
 <script>
 import SidebarNav from '@/layout/SidebarNav'
-// import Flock from '@/views/main/Flock'
-// import MainNavbar from '@/layout/MainNavbar'
-// import Footer from '@/components/Footer'
+import Footer from '@/layout/Footer'
+import Dashboard from '@/layout/Dashboard'
+import AppBar from '@/layout/AppBar'
 
 export default {
     name: 'Main',
     components: {
         SidebarNav,
-        // Flock
-    },
-    props: {
-      source: String,
+        Dashboard,
+        AppBar,
+        Footer,
     },
     data: () => ({
       drawer: null,
       items: [
         { title: 'Account Profile', icon: 'mdi-account', link: '/register'},
         { title: 'Log Out', icon:'mdi-logout', link: '/login' },
-      ],
-      breadcrumbs: [
-        {
-          text: 'Dashboard',
-          disabled: false,
-          href: 'breadcrumbs_dashboard',
-        },
-        {
-          text: 'Link 1',
-          disabled: false,
-          href: 'breadcrumbs_link_1',
-        },
-        {
-          text: 'Link 2',
-          disabled: true,
-          href: 'breadcrumbs_link_2',
-        },
       ],
     }),
 }

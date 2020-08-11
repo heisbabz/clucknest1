@@ -51,7 +51,7 @@ Vue.use(VueRouter)
   {
     path: '/main/flock',
     name: 'Flock',
-    component: () => import(/* webpackChunkName: "about" */ '../views/main/Flock.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/pages/Flock.vue')
   },
 ]
 

@@ -1,22 +1,22 @@
 <template>
     <v-list dense>
-        <v-list-main>
+        <v-list>
             <div class="pa-5 side-logo">
                 <p style="font-weight:700;">Clucknest</p>
                 <v-list-item-subtitle>Talawan Farms</v-list-item-subtitle>  
                 <hr>      
             </div>
-        </v-list-main>
+        </v-list>
         
         <v-spacer></v-spacer>
-    <v-list-item link v-for="(item, index) in items" :key="index" @click="btn">
-        <v-list-item-action>
-        <v-icon>{{item.icon}}</v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
-        <v-list-item-title :to="item.link">{{ item.title }}</v-list-item-title>
-        </v-list-item-content>
-    </v-list-item>
+            <v-list-item link v-for="(sidebarItem, index) in sidebarItems" :key="index" router :to="sidebarItem.link" class="sidebar-item">
+                <v-list-item-action>
+                <v-icon>{{sidebarItem.icon}}</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                <v-list-item-title>{{ sidebarItem.title }}</v-list-item-title>
+                </v-list-item-content>
+            </v-list-item>
     </v-list>
 </template>
 
@@ -28,8 +28,8 @@ export default {
     },
     data: () => ({
       drawer: null,
-      items: [
-        { title: 'Dashboard', icon: 'mdi-view-dashboard'},
+      sidebarItems: [
+        { title: 'Dashboard', icon: 'mdi-view-dashboard', link:'/main'},
         { title: 'Flock', icon:'mdi-duck', link:'/main/flock'},
         { title: 'Medication', icon:'mdi-pill'},
         { title: 'Vaccination', icon:'mdi-needle'},
@@ -49,5 +49,8 @@ export default {
 .side-logo {
     font-size: 30px;
     font-weight: 300;
+}
+.sidebar-item {
+    text-decoration: none;
 }
 </style>
