@@ -1,12 +1,12 @@
 <template>
-    <v-app id="inspire">
+  <v-app id="inspire">
     <v-navigation-drawer v-model="drawer" app class="shadow">
         <SidebarNav />
     </v-navigation-drawer>
       
-       <v-app-bar app color="#CD853F" dark class="ma-2">
-    <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-    <v-toolbar-title>CLUCKNEST</v-toolbar-title>
+    <v-app-bar app color="#CD853F" dark>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>CLUCKNEST</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-text-field flat solo-inverted hide-details prepend-inner-icon="mdi-magnify" abel="Search" class="hidden-sm-and-down" ></v-text-field>
       <v-btn icon>
@@ -15,14 +15,12 @@
       <v-btn icon>
         <v-icon>mdi-bell</v-icon>
       </v-btn>
-
       <v-spacer></v-spacer>
-    <AppBar />
-
+      <AppBar />
     </v-app-bar>
     
     <v-main>
-      
+      <h1>Flock</h1>
     </v-main>
     
     <Footer />

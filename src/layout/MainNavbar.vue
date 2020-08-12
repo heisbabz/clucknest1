@@ -1,9 +1,4 @@
 <template>
-    <!-- <div class="mainavbar">
-        <div id="nav" class="shadow">
-        
-        </div>
-    </div> -->
     <div class="main-navbar">
     <v-app-bar color="dark-gray accent-4" dense dark class="d-flex" outlined tile>
 

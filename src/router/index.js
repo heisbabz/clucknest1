@@ -24,7 +24,7 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../views/Register.vue')
   },
   {
-    path: '/main',
+    path: '/main/dashboard',
     name: 'Main',
     component: () => import(/* webpackChunkName: "about" */ '../views/Main.vue'),
     // props: true,
@@ -52,6 +52,26 @@ Vue.use(VueRouter)
     path: '/main/flock',
     name: 'Flock',
     component: () => import(/* webpackChunkName: "about" */ '../views/pages/Flock.vue')
+  },
+  {
+    path: '/main/expenses',
+    name: 'Expenses',
+    component: () => import(/* webpackChunkName: "about" */ '../views/pages/Expenses.vue')
+  },
+  {
+    path: '/main/income',
+    name: 'Income',
+    component: () => import(/* webpackChunkName: "about" */ '../views/pages/Income.vue')
+  },
+  {
+    path: '/main/medication',
+    name: 'Medication',
+    component: () => import(/* webpackChunkName: "about" */ '../views/pages/Medication.vue')
+  },
+  {
+    path: '/main/vaccination',
+    name: 'Vaccination',
+    component: () => import(/* webpackChunkName: "about" */ '../views/pages/Vaccination.vue')
   },
 ]
 
