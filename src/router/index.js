@@ -24,7 +24,7 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../views/Register.vue')
   },
   {
-    path: '/main/dashboard',
+    path: '/main',
     name: 'Main',
     component: () => import(/* webpackChunkName: "about" */ '../views/Main.vue'),
     // props: true,
@@ -47,6 +47,11 @@ Vue.use(VueRouter)
         next({name: 'Register'})
       }
     }
+  },
+  {
+    path: '/main/dashboard',
+    name: 'Dashboard',
+    component: () => import(/* webpackChunkName: "about" */ '../views/pages/Dashboard.vue')
   },
   {
     path: '/main/flock',

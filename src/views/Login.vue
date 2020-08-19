@@ -77,6 +77,7 @@ a {
 .lb {
   background-color: #CD853F;
   border: #CD853F;
+  color: #fff;
 }
 .lb:hover {
   background-color: #fff;
