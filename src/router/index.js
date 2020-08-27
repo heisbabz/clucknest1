@@ -40,13 +40,13 @@ Vue.use(VueRouter)
     path: '/register-success',
     name: 'RegistrationSuccess',
     component: () => import(/* webpackChunkName: "about" */ '../views/RegistrationSuccess.vue'),
-    beforeEnter: (to, from, next) => {
-      if(to.params.name){
-        next()
-      }else {
-        next({name: 'Register'})
-      }
-    }
+    // beforeEnter: (to, from, next) => {
+    //   if(to.params.name){
+    //     next()
+    //   }else {
+    //     next({name: 'Register'})
+    //   }
+    // }
   },
   {
     path: '/main/dashboard',

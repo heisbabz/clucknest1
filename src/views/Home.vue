@@ -14,7 +14,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm one">
-          <img src="@/assets/spreadsheet.svg" alt="" class="img-fluid">
+          <img src="@/assets/spreadsheet.svg" alt="spreadsheet image" class="img-fluid">
         </div>
         <div class="col-sm one one-text">
           <p>Keep record of your farm's daily and occasional activities</p>
@@ -26,13 +26,13 @@
           <p>View progress report of your farm business</p>
         </div>
         <div class="col-sm one">
-          <img src="@/assets/progress_data.svg" alt="" class="img-fluid">
+          <img src="@/assets/progress_data.svg" alt="image representing data progress" class="img-fluid">
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-sm one">
-          <img src="@/assets/server_cluster.svg" alt="" class="img-fluid">
+          <img src="@/assets/server_cluster.svg" alt="image of a server cluster" class="img-fluid">
         </div>
         <div class="col-sm one one-text">
           <p>Get access to your data anytime anyday with our cloud storage</p>
@@ -63,6 +63,7 @@ export default {
 }
 .wb {
   background-color: #CD853F;
+  color: #fff;
   border: #CD853F;
 }
 .wb:hover {

@@ -1,10 +1,10 @@
 <template>
     <div>
         <Navbar />
-        <div class="register container shadow mt-5 p-4">
+        <div class="register container shadow mt-5 mb-5 p-4">
             <form class="mt-2 " @submit.prevent="regSubmit">
                 <h3 class="a">REGISTER</h3>
-                <div class="form-row pt-3">
+                <div class="form-row">
                     <div class="col">
                         <label for="firstName">First Name</label>
                         <input type="text" class="form-control" name="firstname" placeholder="First name" v-model="users.firstname">
@@ -14,7 +14,7 @@
                         <input type="text" class="form-control" name="lastname" placeholder="Last name" v-model="users.lastname">
                     </div>
                 </div>
-                <div class="form-row pt-3">
+                <div class="form-row">
                     <div class="col-md-8">
                         <label for="email">Email Address</label>
                         <input type="email" class="form-control" name="email" placeholder="Email" v-model="users.email">
@@ -39,7 +39,7 @@
                     <datepicker input-class="form-control" name="doe" v-model="users.doe" :disabledDates="disabledDates" format="dd-MM-yyyy"></datepicker>
                     </div>
                 </div>
-                <div class="form-row pt-3">
+                <div class="form-row">
                     <div class="col-md-8">
                         <label for="farmAddress">Farm Address</label>
                         <input type="text" class="form-control" name="farmaddress" placeholder="Enter your farm address" v-model="users.farmaddress">
@@ -49,23 +49,14 @@
                             <input type="tel" class="form-control" name="phone" v-model="users.phone">
                     </div>
                 </div>
-                <div class="form-row pt-3">
+                <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="city">City</label>
-                        <input type="text" class="form-control" name="city" v-model="users.city">
+                        <country-select type="text" class="form-control" v-model="country" :country="country" topCountry="NG" countryName />
                     </div>
                     <div class="form-group col-md-4">
                         <label for="state">State</label>
-                        <select class="form-control" name="state" v-model="users.state">
-                            <option selected>Choose...</option>
-                            <option>Ekiti</option>
-                            <option>Kwara</option>
-                            <option>Lagos</option>
-                            <option>Ogun</option>
-                            <option>Ondo</option>
-                            <option>Osun</option>
-                            <option>Oyo</option>
-                        </select>
+                        <region-select type="text" class="form-control" v-model="region" :country="country" :region="region" countryName regionName />
                     </div>  
                 </div>
                 <div class="form-row">
@@ -76,7 +67,7 @@
                     </div>
                 </div>
                   <vue-toastr ref="toastr"></vue-toastr>          
-                <button type="submit" class="btn btn-primary mt-4 rb shadow">Submit</button>
+                <button type="submit" class="btn btn-primary mt-2 rb shadow">Submit</button>
             </form>
         </div>
     </div>
@@ -114,6 +105,8 @@ export default {
                 state: null,
                 password: null,
             },
+            country: null,
+            region: null,
             disabledDates: {
                 from: new Date(Date.now())
             },
@@ -131,7 +124,9 @@ export default {
               let ref = db.collection('users').doc(this.slug)
               ref.get().then(doc => {
                   if(doc.exists){
-                      this.$toastr.e("Profile already exist");
+                        firebase.auth().createUserWithEmailAndPassword(this.users.email, this.users.password).catch(err => {
+                        this.$toastr.e(err.message);
+                        })
                   }else {
                       firebase.auth().createUserWithEmailAndPassword(this.users.email, this.users.password)
                       .then(() => {
@@ -144,8 +139,8 @@ export default {
                                 phone: this.users.phone,
                                 doe: this.users.doe,
                                 farmaddress: this.users.farmaddress,
-                                city: this.users.city,
-                                state: this.users.state,
+                                country: this.country,
+                                state: this.region,
                                 password: this.users.password
                           })
                       }).then(() => {

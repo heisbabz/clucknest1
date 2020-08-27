@@ -24,10 +24,10 @@
   </div>
 </template>
 
-<script scoped>
+<script>
 import Navbar from '@/components/Navbar.vue'
-import firebase from 'firebase'
-import 'firebase/firestore'
+import firebase from 'firebase/app'
+import 'firebase/auth'
 import VueToastr from "vue-toastr"
 
 

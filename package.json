@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
+    "firebase": "^7.19.0",
     "firebaseui": "^4.5.2",
     "materialize-css": "^1.0.0-rc.2",
     "moment": "^2.27.0",
@@ -17,6 +18,7 @@
     "slugify": "^1.4.4",
     "vee-validate": "^3.3.8",
     "vue": "^2.6.11",
+    "vue-country-region-select": "^2.0.14",
     "vue-router": "^3.2.0",
     "vue-simple-password-meter": "0.0.22",
     "vue-toastr": "^2.1.2",

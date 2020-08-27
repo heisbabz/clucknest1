@@ -1,6 +1,7 @@
-import firebase from 'firebase'
+import firebase, { firestore } from 'firebase'
+
 // Your web app's Firebase configuration
-var firebaseConfig = {
+var config = {
     apiKey: "AIzaSyCCJNF2fdwnT4lIPeaVAuNs-sYuB1RHZDY",
     authDomain: "clucknest.firebaseapp.com",
     databaseURL: "https://clucknest.firebaseio.com",
@@ -11,7 +12,7 @@ var firebaseConfig = {
     measurementId: "G-XE4S14204T"
   };
   // Initialize Firebase
-  var firebaseClucknest = firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+  const firebaseApp = firebase.initializeApp(config);
+  firestore
 
-  export default firebaseClucknest.firestore()
+  export default firebaseApp.firestore()
