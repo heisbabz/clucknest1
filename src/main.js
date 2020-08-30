@@ -11,7 +11,6 @@ Vue.use(VueToastr);
 Vue.use(vueCountryRegionSelect);
 
 Vue.config.ignoredElements = [/^ion-/]
-Vue.config.silent = true;
 
 Vue.config.productionTip = false
 
@@ -20,4 +19,6 @@ new Vue({
   vuetify,
   render: h => h(App)
 }).$mount('#app')
+Vue.config.silent = true;
+
   

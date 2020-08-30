@@ -1,5 +1,5 @@
 <template>
-    <v-footer color="#CD853F" app >
+    <v-footer color="#2a1b3d" app >
       <span class="white--text">&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
 </template>

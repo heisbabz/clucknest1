@@ -4,7 +4,7 @@
         <SidebarNav />
     </v-navigation-drawer>
       
-    <v-app-bar app color="#CD853F" dark>
+    <v-app-bar app color="#2a1b3d" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>CLUCKNEST</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -21,7 +21,11 @@
     </v-app-bar>
     
     <v-main>
-      <h1>Expenses</h1>
+      <div class="container">
+        <div>
+          <h4>EXPENSES VIEW COMING SOON</h4>
+        </div>
+      </div>
     </v-main>
     
     <Footer />

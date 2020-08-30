@@ -26,7 +26,7 @@
 
 <script>
 import Navbar from '@/components/Navbar.vue'
-import firebase from 'firebase/app'
+import firebase from 'firebase'
 import 'firebase/auth'
 import VueToastr from "vue-toastr"
 
@@ -48,11 +48,14 @@ export default {
   },
   methods: {
     loginSubmit(){
+      // console.log(this.users.email, this.users.password)
       if(this.users.email && this.users.password){
         firebase.auth().signInWithEmailAndPassword(this.users.email, this.users.password)
         .then(() => {
+          this.$toastr.s("Login successful!")
           this.$router.push({name: 'Main', params: {name: this.name}})
-        }).catch(err => {
+        })
+        .catch(err => {
           this.$toastr.e(err.message);
         })
         this.feedback = null

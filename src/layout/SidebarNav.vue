@@ -3,7 +3,7 @@
     <v-list>
       <div class="pa-5 side-logo">
         <p style="font-weight:700;">Clucknest</p>
-        <v-list-item-subtitle>Talawan Farms</v-list-item-subtitle>  
+        <v-list-item-subtitle>Obasanjo Farms</v-list-item-subtitle>  
         <hr>      
       </div>
     </v-list>

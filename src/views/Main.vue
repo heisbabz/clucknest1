@@ -3,8 +3,8 @@
     <v-navigation-drawer v-model="drawer" app class="shadow">
         <SidebarNav />
     </v-navigation-drawer>
-      
-    <v-app-bar app color="#CD853F" dark>
+      <!-- #ffa700, #6c4b18, #f7ecdb, #e6c592, #52a790 -->
+    <v-app-bar app color="#2a1b3d" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>CLUCKNEST</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -20,7 +20,32 @@
     </v-app-bar>
     
     <v-main>
-      <h1>Dashboard</h1>
+      <div class="dashboard">
+        <div class="dash-overview">
+          <div class="row">
+            <v-card class="mx-auto mt-5" width="300" >
+              <v-card-text>
+                <div>TOTAL BIRDS</div>
+                <p class="display-1 text--primary">2,680</p>
+              </v-card-text>
+            </v-card>
+            <v-card class="mx-auto mt-5" width="300" >
+              <v-card-text>
+                <div>EGG SALES</div>
+                <p class="display-1 text--primary">320</p>
+              </v-card-text>
+            </v-card>
+            <v-card class="mx-auto mt-5" width="300" >
+              <v-card-text>
+                <div>INCOME</div>
+                <p class="display-1 text--primary">32,000</p>
+              </v-card-text>
+            </v-card>
+          </div>
+        </div>
+        <v-divider></v-divider>
+        
+      </div>
     </v-main>
     
     <Footer />
@@ -51,7 +76,17 @@ export default {
 
 <style>
 .main {
-    width: 100vh;
-    height: 100vw;
+  width: 100vh;
+  height: 100vw;
+}
+.dashboard {
+  height: 100vh;
+}
+.dash-overview {
+  height: 400px;
+  background-color: #44318d;
+}
+.dash-overview {
+  height: 400px;
 }
 </style>>
