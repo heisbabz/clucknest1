@@ -26,9 +26,10 @@
 
 <script>
 import Navbar from '@/components/Navbar.vue'
-import firebase from 'firebase'
 import 'firebase/auth'
 import VueToastr from "vue-toastr"
+import firebase from 'firebase'
+
 
 
 export default {
@@ -48,7 +49,6 @@ export default {
   },
   methods: {
     loginSubmit(){
-      // console.log(this.users.email, this.users.password)
       if(this.users.email && this.users.password){
         firebase.auth().signInWithEmailAndPassword(this.users.email, this.users.password)
         .then(() => {

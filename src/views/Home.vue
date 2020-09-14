@@ -4,8 +4,7 @@
     <div class="home container">
     <div class="jumbotron welcome">
       <h1 class="display-6 pb-5">WELCOME TO CLUCKNEST</h1>
-      <p class="lead pb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam neque earum at, consequatur saepe 
-      possimus eum quas ad quis corporis.</p>
+      <p class="lead pb-3">The best poultry management app</p>
       <p class="lead">
         <router-link to="/register" class="btn btn-success btn-lg wb shadow" href="#" role="button">Register</router-link>
       </p>
@@ -30,7 +29,7 @@
         </div>
       </div>
       <hr>
-      <div class="row">
+      <div class="row mb-5">
         <div class="col-sm one">
           <img src="@/assets/server_cluster.svg" alt="image of a server cluster" class="img-fluid">
         </div>
@@ -40,18 +39,21 @@
       </div>
       </div>
       
-  </div>
+    </div>
+    <Footer />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Navbar from '@/components/Navbar.vue'
+import Footer from '@/layout/Footer.vue'
 
 export default {
   name: 'Home',
   components: {
-    Navbar
+    Navbar,
+    Footer
   }
 }
 </script>

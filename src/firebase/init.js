@@ -1,7 +1,7 @@
-import firebase, { firestore } from 'firebase'
+import firebase from 'firebase'
 
 // Your web app's Firebase configuration
-var config = {
+firebase.initializeApp({
     apiKey: "AIzaSyCCJNF2fdwnT4lIPeaVAuNs-sYuB1RHZDY",
     authDomain: "clucknest.firebaseapp.com",
     databaseURL: "https://clucknest.firebaseio.com",
@@ -10,9 +10,9 @@ var config = {
     messagingSenderId: "1076141999615",
     appId: "1:1076141999615:web:91362257d98ea6931a93ca",
     measurementId: "G-XE4S14204T"
-  };
-  // Initialize Firebase
-  const firebaseApp = firebase.initializeApp(config);
-  firestore
+  });
+  // // Initialize Firebase
+  // const firebaseApp = firebase.initializeApp(config);
+  // firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
 
-  export default firebaseApp.firestore()
+  export default firebase.initializeApp.firestore()
