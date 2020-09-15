@@ -6,7 +6,7 @@
       <h1 class="display-6 pb-5">WELCOME TO CLUCKNEST</h1>
       <p class="lead pb-3">The best poultry management app</p>
       <p class="lead">
-        <router-link to="/register" class="btn btn-success btn-lg wb shadow" href="#" role="button">Register</router-link>
+        <router-link to="/register" class="btn btn-success btn-lg wb shadow" role="button">Register</router-link>
       </p>
     </div>
 
