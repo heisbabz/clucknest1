@@ -30,7 +30,7 @@ export default {
       drawer: null,
       sidebarItems: [
         { title: 'Dashboard', icon: 'mdi-view-dashboard', link:'/main/dashboard'},
-        { title: 'Flock', icon:'mdi-duck', link:'/main/flock'},
+        { title: 'Batch', icon:'mdi-duck', link:'/main/flock'},
         { title: 'Medication', icon:'mdi-pill', link:'/main/medication'},
         { title: 'Vaccination', icon:'mdi-needle', link:'/main/vaccination'},
         { title: 'Expenses', icon:'mdi-credit-card', link:'/main/expenses'},

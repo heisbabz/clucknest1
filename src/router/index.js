@@ -27,7 +27,7 @@ Vue.use(VueRouter)
     path: '/main',
     name: 'Main',
     component: () => import(/* webpackChunkName: "about" */ '../views/Main.vue'),
-    // props: true,
+    props: true,
     // beforeEnter: (to, from, next) => {
     //   if(to.params.name){
     //     next()

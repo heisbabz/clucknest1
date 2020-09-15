@@ -21,7 +21,7 @@
     
     <v-main>
       <div class="row ma-4 mb-10">
-        <div class="ma-2"><h3>Flock</h3></div>
+        <div class="ma-2"><h3>Batch</h3></div>
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" persistent max-width="800px">
           <template v-slot:activator="{ on, attrs }">
@@ -32,7 +32,7 @@
 
           <v-card>
             <v-card-title>
-              <span class="headline">Add New Flock</span>
+              <span class="headline">Add New Batch</span>
             </v-card-title>
             <v-card-text>
               <v-container>
@@ -53,7 +53,7 @@
                   </v-col>
 
                   <v-col cols="12" sm="6" md="6">
-                    <v-text-field label="Flock Name" hint="example of helper text only on focus"></v-text-field>
+                    <v-text-field label="Batch Name" hint="Input a specific name to group the batch of birds e.g A-01, A, e.t.c"></v-text-field>
                   </v-col>
 
                   <v-col cols="12" sm="6" md="4">
@@ -63,7 +63,7 @@
                   </v-col>
 
                   <v-col cols="4">
-                    <v-text-field label="Source/Supplier" hint="example of persistent helper text" persistent-hint required ></v-text-field>
+                    <v-text-field label="Source/Supplier" hint="Specify the farm or organization where these birds were sourced from" persistent-hint required ></v-text-field>
                   </v-col>
 
                   <v-col cols="3">
@@ -71,15 +71,14 @@
                   </v-col>
 
                   <v-col cols="3">
-                    <v-text-field label="Cost per bird" required type="number" ></v-text-field>
+                    <v-text-field label="Cost per bird" required type="number" min="0" ></v-text-field>
                   </v-col>
 
                   <v-col cols="9">
-                    <v-text-field label="Decription" hint="example of persistent helper text" persistent-hint required ></v-text-field>
+                    <v-text-field label="Decription" hint="Any comments about this particular set of birds you want to note down" persistent-hint required ></v-text-field>
                   </v-col>
                 </v-row>
               </v-container>
-              <small>*indicates required field</small>
             </v-card-text>
 
             <v-card-actions>
@@ -95,7 +94,7 @@
       <div class="container p-4">
         <v-card>
           <v-card-title>
-            Flock Data
+            Batch Records
             <v-spacer></v-spacer>
             <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details ></v-text-field>
           </v-card-title>
@@ -139,24 +138,27 @@ export default {
           sortable: false,
           value: 'id',
         },
-        { text: 'Flock Name', value: 'flockname' },
+        { text: 'Batch Name', value: 'batchname' },
         { text: 'Breed Type', value: 'breedtype' },
         { text: 'Age (Weeks)', value: 'age' },
         { text: 'Total Number', value: 'totalnumber' },
+        { text: 'Action'},
       ],
       birds: [
-        // {
-        //   id: '1',
-        //   flockname: "Leghorn",
-        //   age: 4,
-        //   totalnumber: 120,
-        // },
-        // {
-        //   id: '2',
-        //   flockname: "Rhode Island Red",
-        //   age: 8,
-        //   totalnumber: 380,
-        // },
+        {
+          id: '1',
+          batchname: "Leghorn",
+          breedtype: "Layers",
+          age: 4,
+          totalnumber: 120,
+        },
+        {
+          id: '2',
+          batchname: "Rhode Island Red",
+          breedtype: "Layers",
+          age: 8,
+          totalnumber: 380,
+        },
       ],
       dialog: false,
       date: new Date().toISOString().substr(0, 10),
@@ -174,5 +176,7 @@ export default {
 </script>
 
 <style>
-
+* {
+  font-family: 'Montserrat', sans-serif;
+}
 </style>

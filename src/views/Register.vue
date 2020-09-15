@@ -59,6 +59,7 @@
                         <region-select type="text" class="form-control" v-model="region" :country="country" :region="region" countryName regionName />
                     </div>  
                 </div>
+                <hr class="mt-3">
                 <div class="form-row">
                     <div class="col-sm-7">
                         <label for="password">Password</label>

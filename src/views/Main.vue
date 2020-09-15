@@ -66,15 +66,14 @@ export default {
     },
     data: () => ({
       drawer: null,
-      items: [
-        { title: 'Account Profile', icon: 'mdi-account', link: '/register'},
-        { title: 'Log Out', icon:'mdi-logout', link: '/login' },
-      ],
     }),
 }
 </script>
 
 <style>
+* {
+  font-family: 'Montserrat', sans-serif;
+}
 .main {
   width: 100vh;
   height: 100vw;

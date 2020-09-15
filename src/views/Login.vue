@@ -26,9 +26,9 @@
 
 <script>
 import Navbar from '@/components/Navbar.vue'
+import VueToastr from 'vue-toastr'
+import * as firebase from 'firebase/app'
 import 'firebase/auth'
-import VueToastr from "vue-toastr"
-import firebase from 'firebase'
 
 
 
@@ -48,9 +48,10 @@ export default {
     }
   },
   methods: {
-    loginSubmit(){
+    async loginSubmit(){
       if(this.users.email && this.users.password){
-        firebase.auth().signInWithEmailAndPassword(this.users.email, this.users.password)
+        try {
+          await firebase.auth().signInWithEmailAndPassword(this.users.email, this.users.password)
         .then(() => {
           this.$toastr.s("Login successful!")
           this.$router.push({name: 'Main', params: {name: this.name}})
@@ -59,8 +60,11 @@ export default {
           this.$toastr.e(err.message);
         })
         this.feedback = null
+        }catch(err) {
+          this.$toastr.e(err.message);
+        }
       }else {
-        this.$toastr.e("Please fill in the empty fields")
+        this.$toastr.e("Please fill in the empty field(s)")
       }
     }
   }

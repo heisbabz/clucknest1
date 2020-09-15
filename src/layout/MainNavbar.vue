@@ -45,6 +45,9 @@ export default {
 </script>
 
 <style>
+* {
+  font-family: 'Montserrat', sans-serif;
+}
 .main-navbar {
     width: 85vw;
 }
