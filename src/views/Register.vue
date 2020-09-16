@@ -51,7 +51,7 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="city">City</label>
+                        <label for="country">Country</label>
                         <country-select type="text" class="form-control" v-model="country" :country="country" topCountry="NG" countryName />
                     </div>
                     <div class="form-group col-md-4">
@@ -80,8 +80,10 @@ import Datepicker from 'vuejs-datepicker'
 import passwordMeter from "vue-simple-password-meter"
 import slugify from 'slugify'
 import db from '@/firebase/init'
-import firebase from 'firebase'
 import VueToastr from "vue-toastr"
+import * as firebase from 'firebase'
+import 'firebase/auth'
+import 'firebase/database'
 
 export default {
     name: 'Register',
@@ -115,7 +117,7 @@ export default {
         }
     },
     methods: {
-        regSubmit() {
+        async regSubmit() {
             if(this.users.farmname && this.users.farmaddress){
               this.slug = slugify(this.users.farmname || this.users.farmaddress, {
                   replacement: '-',
@@ -123,6 +125,7 @@ export default {
                   lower: true
               })
               let ref = db.collection('users').doc(this.slug)
+            //   let ref = firestore().collection('users').doc(this.slug)
               ref.get().then(doc => {
                   if(doc.exists){
                         firebase.auth().createUserWithEmailAndPassword(this.users.email, this.users.password).catch(err => {

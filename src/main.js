@@ -4,8 +4,10 @@ import router from './router'
 import VueToastr from "vue-toastr"
 import vuetify from './plugins/vuetify'
 import vueCountryRegionSelect from 'vue-country-region-select'
+import axios from 'axios'
 import firebase from 'firebase'
 
+Vue.prototype.$axios = axios;
 Vue.use(firebase)
 Vue.use(VueToastr);
 Vue.use(vueCountryRegionSelect);
@@ -25,13 +27,16 @@ const firebaseConfig = {
   measurementId: "G-XE4S14204T"
 };
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 let app;
 
 firebase.auth().onAuthStateChanged(()=> {
   if(!app) {
-    app = new Vue({
+    app = 
+    new Vue({
       router,
       vuetify,
       render: h => h(App)
