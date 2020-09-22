@@ -26,4 +26,7 @@ export default {
   color: #2c3e50;
   font-family: 'Montserrat', sans-serif;
 }
+.router {
+  text-decoration: none;
+}
 </style>

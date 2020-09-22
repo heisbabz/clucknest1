@@ -25,7 +25,7 @@
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" persistent max-width="800px">
           <template v-slot:activator="{ on, attrs }">
-            <v-btn class="ma-2" color="success" v-bind="attrs" v-on="on">
+            <v-btn class="ma-2" color="success" v-bind="attrs" v-on="on" outlined>
               <v-icon left>mdi-plus</v-icon> Add New
             </v-btn>
           </template>

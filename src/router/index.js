@@ -84,6 +84,24 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../views/pages/Vaccination.vue'),
     meta: { requiresAuth: true },
   },
+  {
+    path: '/register-survey',
+    name: 'RegistrationSurvey',
+    component: () => import(/* webpackChunkName: "about" */ '../views/RegistrationSurvey.vue'),
+    // meta: { requiresAuth: true },
+  },
+  {
+    path: '/register-survey/new-farm',
+    name: 'NewFarm',
+    component: () => import(/* webpackChunkName: "about" */ '../views/NewFarm.vue'),
+    // meta: { requiresAuth: true },
+  },
+  {
+    path: '/register-survey/existing-farm',
+    name: 'ExistingFarm',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ExistingFarm.vue'),
+    // meta: { requiresAuth: true },
+  },
 ]
 
 const router = new VueRouter({

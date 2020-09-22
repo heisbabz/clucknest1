@@ -25,7 +25,7 @@
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" persistent max-width="800px">
           <template v-slot:activator="{ on, attrs }">
-            <v-btn class="ma-2" color="success" v-bind="attrs" v-on="on">
+            <v-btn class="ma-2" color="success" v-bind="attrs" v-on="on" outlined>
               <v-icon left>mdi-plus</v-icon> Add New
             </v-btn>
           </template>
@@ -91,16 +91,16 @@
         </v-dialog>
       </div>
 
-      <div class="container p-4">
+      <!-- <div class="container p-4">
         <v-card>
           <v-card-title>
-            Flock Data
+            Medical Data
             <v-spacer></v-spacer>
             <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details ></v-text-field>
           </v-card-title>
           <v-data-table :headers="headers" :items="birds" :search="search" ></v-data-table>
         </v-card>
-      </div>
+      </div> -->
     </v-main>
     
     <Footer />
@@ -129,6 +129,7 @@ export default {
         { title: 'Account Profile', icon: 'mdi-account', link: '/register'},
         { title: 'Log Out', icon:'mdi-logout', link: '/login' },
       ],
+      dialog: false,
     }),
 }
 </script>

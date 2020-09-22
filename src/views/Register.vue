@@ -125,7 +125,6 @@ export default {
                   lower: true
               })
               let ref = db.collection('users').doc(this.slug)
-            //   let ref = firestore().collection('users').doc(this.slug)
               ref.get().then(doc => {
                   if(doc.exists){
                         firebase.auth().createUserWithEmailAndPassword(this.users.email, this.users.password).catch(err => {

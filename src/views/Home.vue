@@ -62,6 +62,7 @@ export default {
 <style scoped>
 .welcome {
   text-align: center;
+  height: 400px;
 }
 .wb {
   background-color: #CD853F;

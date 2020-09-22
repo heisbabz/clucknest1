@@ -66,7 +66,17 @@ export default {
     },
     data: () => ({
       drawer: null,
-    })
+    }),
+    // created() {
+    //   let ref = db.collection('users');
+    //   //get current user
+    //   ref.where('user_id', '==', firebase.auth().currentUser.uid.get()
+    //   .then(snapshot => {
+    //     snapshot.forEach(doc => {
+    //       this.user = doc.data()
+    //     })
+    //   })
+    // )}
 }
 </script>
 
