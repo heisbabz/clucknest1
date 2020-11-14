@@ -21,12 +21,12 @@
     
     <v-main>
       <div class="row ma-4 mb-10">
-        <div class="ma-2"><h3>Medication</h3></div>
+        <div class="ma-2"><h3>Daily Record</h3></div>
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" persistent max-width="800px">
           <template v-slot:activator="{ on, attrs }">
             <v-btn class="ma-2" color="success" v-bind="attrs" v-on="on" outlined>
-              <v-icon left>mdi-plus</v-icon> Add New
+              <v-icon left>mdi-plus</v-icon> Add
             </v-btn>
           </template>
 
@@ -62,21 +62,17 @@
                     </v-select>
                   </v-col>
 
-                  <v-col cols="4">
-                    <v-text-field label="Source/Supplier" hint="example of persistent helper text" persistent-hint required ></v-text-field>
-                  </v-col>
-
-                  <v-col cols="3">
+                  <v-col cols="12" sm="6" md="3">
                     <v-text-field label="Number of Birds" required single-line hide-details type="number" ></v-text-field>
                   </v-col>
 
-                  <v-col cols="3">
-                    <v-text-field label="Cost per bird" required type="number" ></v-text-field>
+                  <v-col cols="12" sm="6" md="3">
+                    <v-text-field label="Number of Eggs" required type="number" ></v-text-field>
                   </v-col>
 
-                  <v-col cols="9">
+                  <!-- <v-col cols="12" sm="6" md="9">
                     <v-text-field label="Decription" hint="example of persistent helper text" persistent-hint required ></v-text-field>
-                  </v-col>
+                  </v-col> -->
                 </v-row>
               </v-container>
               <small>*indicates required field</small>
@@ -114,7 +110,7 @@ import AppBar from '@/layout/AppBar'
 
 
 export default {
-    name: 'Medication',
+    name: 'DailyRecord',
     components: {
         SidebarNav,
         AppBar,
@@ -130,6 +126,10 @@ export default {
         { title: 'Log Out', icon:'mdi-logout', link: '/login' },
       ],
       dialog: false,
+      breeds: [
+        'Pullets',
+        'Layers',
+      ],
     }),
 }
 </script>

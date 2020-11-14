@@ -73,9 +73,9 @@ Vue.use(VueRouter)
     meta: { requiresAuth: true },
   },
   {
-    path: '/main/medication',
-    name: 'Medication',
-    component: () => import(/* webpackChunkName: "about" */ '../views/pages/Medication.vue'),
+    path: '/main/daily-record',
+    name: 'DailyRecord',
+    component: () => import(/* webpackChunkName: "about" */ '../views/pages/DailyRecord.vue'),
     meta: { requiresAuth: true },
   },
   {

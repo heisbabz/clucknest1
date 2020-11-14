@@ -148,7 +148,7 @@ export default {
                           })
                       }).then(() => {
                           this.$toastr.s("Registration Successful!")
-                          this.$router.push({name: 'RegistrationSuccess', params: {name: this.name}})
+                          this.$router.push({name: 'RegistrationSuccess', params: {name: this.name}}).catch(()=>{});
                       })
                       }
               }) 

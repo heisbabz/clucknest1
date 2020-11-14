@@ -54,7 +54,7 @@ export default {
           await firebase.auth().signInWithEmailAndPassword(this.users.email, this.users.password)
         .then(() => {
           this.$toastr.s("Login successful!")
-          this.$router.push({name: 'Main', params: {name: this.name}})
+          this.$router.push({name: 'Main', params: {name: this.name}}).catch(()=>{});
         })
         .catch(err => {
           this.$toastr.e(err.message);
