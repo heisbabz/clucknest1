@@ -1,46 +1,46 @@
 <template>
-    <div>
-        <Navbar />
-        <div class="register container shadow mt-5 mb-5 p-4">
-            <h3 class="a">NEW FARM</h3>
+<div>
+    <Navbar />
+    <div class="register container shadow mt-5 mb-5 p-4">
+        <h3 class="a">NEW FARM</h3>
 
-    <form class="mt-2 " @submit.prevent="regSubmit">
-        <div class="form-row">
-            <div class="col-md-8">
-                <label for="farmName">Farm Name</label>
-                <input type="text" class="form-control" placeholder="Farm name" v-model="users.farmname">
+        <form class="mt-2 " @submit.prevent="regSubmit">
+            <div class="form-row">
+                <div class="col-md-8">
+                    <label for="farmName">Farm Name</label>
+                    <input type="text" class="form-control" placeholder="Farm name" v-model="users.farmname">
+                </div>
+                <div class="col-md-4">
+                    <label for="dateOfEstablishment">Date of Establishment</label>
+                    <datepicker input-class="form-control" name="doe" v-model="users.doe" :disabledDates="disabledDates" format="dd-MM-yyyy"></datepicker>
+                </div>
             </div>
-            <div class="col-md-4">
-            <label for="dateOfEstablishment">Date of Establishment</label>
-            <datepicker input-class="form-control" name="doe" v-model="users.doe" :disabledDates="disabledDates" format="dd-MM-yyyy"></datepicker>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="col-md-8">
-                <label for="farmAddress">Farm Address</label>
-                <input type="text" class="form-control" name="farmaddress" placeholder="Enter your farm address" v-model="users.farmaddress">
-            </div>
-            <div class="col-md-4">
+            <div class="form-row">
+                <div class="col-md-8">
+                    <label for="farmAddress">Farm Address</label>
+                    <input type="text" class="form-control" name="farmaddress" placeholder="Enter your farm address" v-model="users.farmaddress">
+                </div>
+                <div class="col-md-4">
                     <label for="farmName">Phone Number</label>
                     <input type="tel" class="form-control" name="phone" v-model="users.phone">
+                </div>
             </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="country">Country</label>
-                <country-select type="text" class="form-control" v-model="country" :country="country" topCountry="NG" countryName />
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="country">Country</label>
+                    <country-select type="text" class="form-control" v-model="country" :country="country" topCountry="NG" countryName />
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="state">State</label>
+                    <region-select type="text" class="form-control" v-model="region" :country="country" :region="region" countryName regionName />
+                </div>
             </div>
-            <div class="form-group col-md-4">
-                <label for="state">State</label>
-                <region-select type="text" class="form-control" v-model="region" :country="country" :region="region" countryName regionName />
-            </div>  
-        </div>
-        <vue-toastr ref="toastr"></vue-toastr> 
-        <button type="submit" class="btn btn-primary mt-2 rb shadow">Submit</button>
-    </form>
+            <vue-toastr ref="toastr"></vue-toastr>
+            <button type="submit" class="btn btn-primary mt-2 rb shadow">Submit</button>
+        </form>
 
-  </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -59,8 +59,8 @@ export default {
         Datepicker,
         VueToastr
     },
-    data(){
-        return{
+    data() {
+        return {
             users: {
                 farmname: null,
                 phone: null,
@@ -77,29 +77,34 @@ export default {
             feedback: null
         }
     },
-        methods: {
+    methods: {
         async regSubmit() {
-            if(this.users.farmname && this.users.farmaddress){
-              this.slug = slugify(this.users.farmname || this.users.farmaddress, {
-                  replacement: '-',
-                  remove: /[$*_+~.()'"!\-:@]/g,
-                  lower: true
-              })
-              let ref = db.collection('users').doc(this.slug)
-              ref.get().then(() => {
-                ref.set({
-                    farmname: this.users.farmname,
-                    phone: this.users.phone,
-                    doe: this.users.doe,
-                    farmaddress: this.users.farmaddress,
-                    country: this.country,
-                    state: this.region
+            if (this.users.farmname && this.users.farmaddress) {
+                this.slug = slugify(this.users.farmname || this.users.farmaddress, {
+                    replacement: '-',
+                    remove: /[$*_+~.()'"!\-:@]/g,
+                    lower: true
                 })
+                let ref = db.collection('users').doc(this.slug)
+                ref.get().then(() => {
+                    ref.set({
+                        farmname: this.users.farmname,
+                        phone: this.users.phone,
+                        doe: this.users.doe,
+                        farmaddress: this.users.farmaddress,
+                        country: this.country,
+                        state: this.region
+                    })
                 }).then(() => {
                     this.$toastr.s("Data Saved!")
-                    this.$router.push({name: 'RegistrationSuccess', params: {name: this.name}})
-                }) 
-            }else{
+                    this.$router.push({
+                        name: 'RegistrationSuccess',
+                        params: {
+                            name: this.name
+                        }
+                    })
+                })
+            } else {
                 this.$toastr.e("Please fill in the empty fields");
             }
         },

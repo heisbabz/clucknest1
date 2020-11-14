@@ -1,14 +1,16 @@
 <template>
-    <div>
-        <Navbar />
-        <div class="container mt-5 registration-success">
+<div>
+    <Navbar />
+    <div class="container mt-5 registration-success">
         <div class="container p4 reg-page">
             <h2>Registration Completed!</h2>
             <img src="@/assets/confirm.svg" alt="" class="img-fluid" style="height:300px">
-            <p class="mt-2">Please proceed to the <router-link class="router" to="/register-survey"><v-btn outlined color="indigo">next</v-btn></router-link> page to fill out some informations</p>
-            </div>
+            <p class="mt-2">Please proceed to the <router-link class="router" to="/register-survey">
+                    <v-btn outlined color="indigo">next</v-btn>
+                </router-link> page to fill out some informations</p>
         </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -23,11 +25,12 @@ export default {
 </script>
 
 <style scoped>
-.registration-success{
+.registration-success {
     justify-content: center;
     text-align: center;
 }
-.reg-page{
+
+.reg-page {
     height: 10%;
 }
 </style>

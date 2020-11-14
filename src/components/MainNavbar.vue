@@ -1,16 +1,18 @@
 <template>
-    <div id="mainNavbar">
+<div id="mainNavbar">
     <div id="mainNav" class="shadow">
-      <h1>Main Navbar here</h1>
+        <h1>Main Navbar here</h1>
     </div>
-    <router-view/>
-  </div>
-</template>>
+    <router-view />
+</div>
+</template>
+
+>
 
 <script>
 export default {
     name: 'MainNavbar',
-    date(){
+    date() {
         return {
 
         }

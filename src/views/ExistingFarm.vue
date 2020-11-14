@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <Navbar />
-        <h1>Existing Farm</h1>
-    </div>
+<div>
+    <Navbar />
+    <h1>Existing Farm</h1>
+</div>
 </template>
 
 <script>
