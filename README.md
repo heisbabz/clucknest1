@@ -1,4 +1,8 @@
 # clucknest
+```
+Clucknest is a poultry management app that is developed for livestock farmers to keep records of activities on the farm.
+
+```
 
 ## Project setup
 ```
