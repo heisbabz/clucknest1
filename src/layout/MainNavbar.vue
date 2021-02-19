@@ -1,15 +1,11 @@
 <template>
 <div class="main-navbar">
     <v-app-bar color="dark-gray accent-4" dense dark class="d-flex" outlined tile>
-
         <v-toolbar-title>CLUCKNEST</v-toolbar-title>
-
         <v-spacer></v-spacer>
-
         <v-btn icon>
             <v-icon>mdi-heart</v-icon>
         </v-btn>
-
         <v-btn icon>
             <v-icon>mdi-magnify</v-icon>
         </v-btn>

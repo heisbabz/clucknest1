@@ -9,8 +9,8 @@ import firebase from 'firebase'
 
 Vue.prototype.$axios = axios;
 Vue.use(firebase)
-Vue.use(VueToastr);
-Vue.use(vueCountryRegionSelect);
+Vue.use(VueToastr)
+Vue.use(vueCountryRegionSelect)
 
 Vue.config.ignoredElements = [/^ion-/]
 
@@ -31,17 +31,17 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 
-// let app;
+let app;
 
 firebase.auth().onAuthStateChanged(()=> {
-  // if(!app) {
-    // app = 
+  if(!app) {
+    app = 
     new Vue({
       router,
       vuetify,
       render: h => h(App)
     }).$mount('#app')
-  // }
+  }
 })
 Vue.config.silent = true;
 

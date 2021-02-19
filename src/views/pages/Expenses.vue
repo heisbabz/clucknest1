@@ -4,7 +4,7 @@
         <SidebarNav />
     </v-navigation-drawer>
 
-    <v-app-bar app color="#2a1b3d" dark>
+    <v-app-bar app color="#CD853F" dark>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title>CLUCKNEST</v-toolbar-title>
         <v-spacer></v-spacer>
@@ -88,7 +88,7 @@
         </div>
 
         <div class="container p-4">
-            <v-card>
+            <v-card class="shadow">
                 <v-card-title>
                     Expenses Record
                     <v-spacer></v-spacer>

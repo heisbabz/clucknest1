@@ -4,7 +4,7 @@
         <SidebarNav />
     </v-navigation-drawer>
     <!-- #ffa700, #6c4b18, #f7ecdb, #e6c592, #52a790 -->
-    <v-app-bar app color="#2a1b3d" dark>
+    <v-app-bar app color="#CD853F" dark>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title>CLUCKNEST</v-toolbar-title>
         <v-spacer></v-spacer>
@@ -22,28 +22,28 @@
     <v-main>
         <div class="dashboard">
             <div class="dash-overview">
-                <div class="row">
+                <div class="row mt-5">
                     <v-card class="mx-auto mt-5" width="300">
-                        <v-card-text>
+                        <v-card-text class="text-center shadow">
                             <div>TOTAL BIRDS</div>
                             <p class="display-1 text--primary">0</p>
                         </v-card-text>
                     </v-card>
                     <v-card class="mx-auto mt-5" width="300">
-                        <v-card-text>
+                        <v-card-text class="text-center shadow">
                             <div>EGG SALES</div>
                             <p class="display-1 text--primary">0</p>
                         </v-card-text>
                     </v-card>
                     <v-card class="mx-auto mt-5" width="300">
-                        <v-card-text>
+                        <v-card-text class="text-center shadow">
                             <div>INCOME</div>
                             <p class="display-1 text--primary">0</p>
                         </v-card-text>
                     </v-card>
+                    
                 </div>
             </div>
-            <v-divider></v-divider>
 
         </div>
     </v-main>
@@ -96,7 +96,7 @@ export default {
 
 .dash-overview {
     height: 400px;
-    background-color: #44318d;
+    /* background-color: #44318d; */
 }
 
 .dash-overview {
