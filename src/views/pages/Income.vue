@@ -22,7 +22,7 @@
     <v-main>
         <div class="row ma-4 mb-10">
             <div class="ma-2">
-                <h3>Income</h3>
+                <h3>Incomes</h3>
             </div>
             <v-spacer></v-spacer>
             <v-dialog v-model="dialog" persistent max-width="800px">
