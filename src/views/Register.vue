@@ -154,7 +154,9 @@ export default {
                                         name: this.name
                                     }
                                 }).catch(() => {});
-                            })
+                            }).catch((err) => {
+                                this.$toastr.e(err.message);
+                                });
                     }
                 })
             } else {

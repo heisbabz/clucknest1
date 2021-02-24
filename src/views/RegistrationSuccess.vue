@@ -5,9 +5,9 @@
         <div class="container p4 reg-page">
             <h2>Registration Completed!</h2>
             <img src="@/assets/confirm.svg" alt="" class="img-fluid" style="height:300px">
-            <p class="mt-2">Please proceed to the <router-link class="router" to="/register-survey">
-                    <v-btn outlined color="indigo">next</v-btn>
-                </router-link> page to fill out some informations</p>
+            <p class="mt-2">Please proceed to the <router-link class="router" to="/login">
+                    <v-btn outlined color="indigo">Login Page</v-btn>
+                </router-link> to continue</p>
         </div>
     </div>
 </div>
