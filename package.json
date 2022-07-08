@@ -16,7 +16,7 @@
     "firebase-admin": "^9.5.0",
     "firebaseui": "^4.7.3",
     "materialize-css": "^1.0.0",
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "node-forge": "^0.10.0",
     "pwa": "^1.9.7",
     "querystring": "^0.2.1",
