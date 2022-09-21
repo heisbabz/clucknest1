@@ -28,7 +28,7 @@
     "vue-simple-password-meter": "0.0.22",
     "vue-toastr": "^2.1.2",
     "vuejs-datepicker": "^1.6.2",
-    "vuetify": "^2.4.4"
+    "vuetify": "^2.6.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
